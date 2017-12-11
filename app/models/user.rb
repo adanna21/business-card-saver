@@ -3,9 +3,11 @@ class User < ApplicationRecord
     USERNAME_LENGTH = (5..15)
 
     has_many :contacts, dependent: :delete_all
+
+    validates_presence_of :username
     validates :name, presence: true
-    validates :username, length: USERNAME_LENGTH, uniqueness: true, presence: true
-    validates :password, length: PASSWORD_LENGTH, allow_nil: true, presence: true
+    validates :username, length: USERNAME_LENGTH, uniqueness: true
+    validates :password, length: PASSWORD_LENGTH, allow_nil: true
     validates :email, confirmation: true,
     presence: true,
     uniqueness: true,

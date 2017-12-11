@@ -2,7 +2,7 @@
 
 Here is the diagram of how the database will look:
 
-![database model](./app/assets/images/database_model.jpg)
+![database-model](./app/assets/images/database_model.jpg)
 
 
 

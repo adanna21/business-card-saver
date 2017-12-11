@@ -2,7 +2,7 @@
 
 Here is the diagram of how the database will look:
 
-![erd](./assets/database_model.jpg)
+![database model](./assets/database_model.jpg)
 
 
 
@@ -23,7 +23,7 @@ I have two tables: `users`, and `contacts`.
   - description (text)
   - This table will have a `belongs_to` relationship to a `user`.
 
-App Details:
+**App Details:**
 
 * Ruby version
   - ruby 2.4.1p111

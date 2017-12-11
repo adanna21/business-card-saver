@@ -2,10 +2,22 @@ class User < ApplicationRecord
     PASSWORD_LENGTH = (6..25)
     USERNAME_LENGTH = (5..15)
 
-    validates_presence_of :username
-    validates :username, length: USERNAME_LENGTH, uniqueness: true
-    validates :password, length: PASSWORD_LENGTH, allow_nil: true
-    has_many :contacts
+    has_many :contacts, dependent: :delete_all
+    validates :name, presence: true
+    validates :username, length: USERNAME_LENGTH, uniqueness: true, presence: true
+    validates :password, length: PASSWORD_LENGTH, allow_nil: true, presence: true
+    validates :email, confirmation: true,
+    presence: true,
+    uniqueness: true,
+    format: {
+      with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
+      message: "Thats not an email!"
+    },
+    length: {
+      minimum: 5
+    }
+    validates :email_confirmation, presence: true
+   
 
     attr_reader :password
 

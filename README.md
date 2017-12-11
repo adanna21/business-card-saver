@@ -1,11 +1,33 @@
-# README
+# Business Card Saver
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here is the diagram of how the database will look:
 
-Things you may want to cover:
+![erd](./assets/database_model.jpg)
+
+
+
+I have two tables: `users`, and `contacts`.
+
+- **User**
+  - username (string)
+  - email (string)
+  - password (string)
+  - This table will have a `has_many` relationship to `contacts`.
+- **Contact**
+  - name (string)
+  - company (string)
+  - department (string)
+  - title (string)
+  - email (string)
+  - phone (string)
+  - description (text)
+  - This table will have a `belongs_to` relationship to a `user`.
+
+App Details:
 
 * Ruby version
+  - ruby 2.4.1p111
+  - coding in Ruby 5
 
 * System dependencies
 
@@ -21,4 +43,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...

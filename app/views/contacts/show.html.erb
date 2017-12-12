@@ -1,0 +1,17 @@
+<h1 class="page-title"><%= @contact.name %></h1>
+<div class="show">
+    <div class="contact-info info">
+        <h2 class="card-title"><%= @contact.company %></h2>
+        <h4><%= @contact.title %></h4>
+        <h4><%= @contact.department %></h4>
+        <p>Phone: <%= @contact.phone %></p>
+        <p>Email: <%= @contact.email %></p>
+        <p>Description: <%= @contact.description %></p>
+        <div class="card-footer">
+            <div class="footer-buttons">
+                <%= link_to("✎", edit_contact_path(@contact), :class => "pop-button") %>
+                <%= button_to("✕", @contact, method: :delete, :class=>"pop-button") %>
+            </div>
+        </div>
+    </div>
+</div>

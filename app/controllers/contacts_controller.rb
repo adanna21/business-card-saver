@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
   end
 
   def index
-    @contact = current_user.contacts
+    @contacts = current_user.contacts
   end
 
   def show; end

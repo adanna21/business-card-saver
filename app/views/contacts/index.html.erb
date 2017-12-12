@@ -1,0 +1,16 @@
+<h1 class="page-title">Contacts</h1>
+<div class="contact-list">
+  <% if @contacts.empty? %>
+    No contacts yet :(
+
+  <% else %>
+    <% @contacts.each do |contact| %>
+      <div class="contact-info">
+        <h2 class="contact-title">
+          <%= link_to contact.name, contact_path(contact) %>
+        </h2>
+        <p><%= contact.description %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

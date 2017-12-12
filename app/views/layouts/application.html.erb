@@ -7,8 +7,36 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+      <h1>Business Card Saver</h1>
+      <nav>
+        <% if current_user %>
+          Welcome <%= current_user.username %>
+          <%= button_to 'Log out', session_path, method: :delete %>
+        <% end %>
+        <%= link_to 'Contacts', contacts_path %>
+        |
+        <%= link_to 'Create Contact', new_contact_path %>
+      </nav>
+      <% if flash[:notice].present? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:error].present? %>
+        <div class="errors">
+          <b>Errors:</b>
+
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

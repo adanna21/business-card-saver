@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_signed_out, only: [:new, :create]
-  before_action :ensure_signed_in, only: [:show, :index]
+  # before_action :ensure_signed_in, only: [:show, :index]
 
   def new
     @user = User.new
@@ -19,17 +19,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @users = User.all
-  end
+  # def index
+  #   @users = User.all
+  # end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  # end
 
   private
 
   def create_params
-    params.require(:user).permit(:username, :password, :name, :email)
+    params.require(:user).permit(:username, :password, :name, :password, :email, :email_confirmation)
   end
 end

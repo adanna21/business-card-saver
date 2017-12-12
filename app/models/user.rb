@@ -18,10 +18,11 @@ class User < ApplicationRecord
     length: {
       minimum: 5
     }
-    validates :email_confirmation, presence: true
-   
+    validates :email_confirmation, presence: true, if: :email_confirmation_required?
+    
+    
 
-    attr_reader :password
+    attr_reader :password, :email_confirmation
 
     def self.find_from_credentials(username, password)
         user = find_by(username: username)
@@ -36,5 +37,9 @@ class User < ApplicationRecord
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
+    end
+
+    def email_confirmation_required?
+        new_record? || email_confirmation.present?
     end
 end

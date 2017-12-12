@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
 
     if user
       sign_in(user)
+      flash[:notice] = "Hi, #{username}! You signed in!"
+      redirect_to contacts_path
+    else
+      sign_in(user)
       flash[:error] = 'User not found'
       @user = User.new(username: username)
       render :new
@@ -28,6 +32,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :name, :email, :email_confirmation)
+    params.require(:user).permit(:username, :password)
   end
 end

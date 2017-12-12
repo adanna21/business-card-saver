@@ -11,6 +11,7 @@
             <div class="footer-buttons">
                 <%= link_to("✎", edit_contact_path(@contact), :class => "pop-button") %>
                 <%= button_to("✕", @contact, method: :delete, :class=>"pop-button") %>
+                <%= link_to 'Cancel', :back %>
             </div>
         </div>
     </div>

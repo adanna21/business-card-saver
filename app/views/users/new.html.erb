@@ -1,0 +1,34 @@
+<h1>Create an Account</h1>
+
+<%= form_for @user do |form| %>
+  <%= form.text_field :name,
+      placeholder: 'name',
+      required: true
+  %>
+  <%= form.email_field :email,
+      placeholder: 'email',
+      required: true   
+  %>
+
+  <%= form.email_field :email_confirmation, :value => user.email %>
+
+  <%= form.text_field :username,
+      placeholder: 'Username',
+      required: true,
+      minlength: User::USERNAME_LENGTH.begin,
+      maxlength: User::USERNAME_LENGTH.end
+  %>
+
+  <%= form.password_field :password,
+      placeholder: 'password',
+      required: true,
+      minlength: User::PASSWORD_LENGTH.begin,
+      maxlength: User::PASSWORD_LENGTH.end
+  %>
+  
+
+  <%= submit_tag 'Create Account!' %>
+<% end %>
+
+<br>
+Returning user? <%= link_to 'Sign in', new_session_path %>

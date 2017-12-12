@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(create_params)
-    @contact.user = currect_user
+    @contact.user = current_user
 
     if @contact.save
       flash[:notice] = 'Contact created!'

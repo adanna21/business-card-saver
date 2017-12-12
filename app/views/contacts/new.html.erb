@@ -1,0 +1,33 @@
+<h1>Add a Contact</h1>
+
+<%= form_for @contact do |form| %>
+  <div class="input-group">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="input-group">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div class="input-group">
+  <%= form.label :phone %>
+  <%= form.text_field :phone %>
+  </div>
+   <div class="input-group">
+    <%= form.label :company %>
+    <%= form.text_field :company %>
+  </div>
+  <div class="input-group">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="input-group">
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+  <div class="input-group">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <%= submit_tag 'Add Contact!' %>
+<% end %>

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :ensure_signout_out, only: [:new, :create]
+  before_action :ensure_signed_out, only: [:new, :create]
 
   def new
     @user = User.new

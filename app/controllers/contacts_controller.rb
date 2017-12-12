@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :ensure_signed_in
-  before_action :load_monster, only: [:show, :edit, :update, :destroy]
+  before_action :load_contact, only: [:show, :edit, :update, :destroy]
 
   def new
     @contact = Contact.new
@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
   end
 
   def index
-    @contact = currect_user.contacts
+    @contact = current_user.contacts
   end
 
   def show; end

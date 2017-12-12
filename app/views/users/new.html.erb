@@ -10,7 +10,11 @@
       required: true   
   %>
 
-  <%= form.email_field :email_confirmation, :value => user.email %>
+  <%= form.email_field :email_confirmation, 
+      placeholder: 'confirm email',
+      :value => @user.email 
+
+  %>
 
   <%= form.text_field :username,
       placeholder: 'Username',

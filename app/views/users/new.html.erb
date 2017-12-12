@@ -13,7 +13,6 @@
   <%= form.email_field :email_confirmation, 
       placeholder: 'confirm email',
       :value => @user.email 
-
   %>
 
   <%= form.text_field :username,
@@ -29,7 +28,6 @@
       minlength: User::PASSWORD_LENGTH.begin,
       maxlength: User::PASSWORD_LENGTH.end
   %>
-  
 
   <%= submit_tag 'Create Account!' %>
 <% end %>
